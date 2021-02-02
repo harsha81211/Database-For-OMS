@@ -1,0 +1,137 @@
+// Creation of database and using it.
+create database OMS;
+use OMS;
+
+//Creating agent table
+create table Agent(
+AgentId int(10) not null auto_increment,
+LoginId varchar(10) not null unique,
+LastName varchar(30) not null,
+FirstName varchar(30) not null,
+Password varchar(50) not null,
+Email varchar(50) not null,
+Phone varchar(15) not null,
+DOB date,
+AddressLine1 text not null,
+AddressLine2 text not null,
+State varchar(20) not null,
+Country varchar(20) not null,
+PinCode varchar(20) not null,
+DefaultStore varchar(20) not null,
+DefaultPageSize int(10) not null default 10,
+isActive boolean not null default true,
+isAdmin boolean not null default false,
+primary key(AgentId));
+
+//creating customer table
+CREATE TABLE Customer(
+        CustomerId int(10) NOT NULL auto_increment,
+        LastName VARCHAR(30) NOT NULL,
+        FirstName VARCHAR(30) NOT NULL,
+        Email VARCHAR(50) NOT NULL,
+        Phone varchar(15) NOT NULL,
+        RegistrationDate DATE NOT NULL,
+        DOB DATE,
+        Password VARCHAR(50) NOT NULL,
+        primary key(CustomerId)
+);
+
+//Creating customer address table
+create table CustomerAddress(
+CustomerId int(10) not null AUTO_INCREMENT ,
+AddressLine1 text not null,
+AddressLine2 text not null,
+State varchar(20) not null,
+Country varchar(20) not null,
+Pincode varchar(20) not null,
+Phone varchar(15) not null,
+isbillingAddress boolean not null,
+CreationDate date not null,
+foreign key(CustomerId) references Customer(CustomerId));
+
+//creating STORE table
+create table Store (
+    StoreId int(10) not null,
+    StoreName varchar(30) not null,
+    AddressLine1 text not null,
+    AddressLine2 text not null,
+    State varchar(20) not null,
+    Country varchar(20) not null,
+    Pincode varchar(20) not null,
+    Phone varchar(15) not null,
+    Email varchar(50) not null,
+    primary key (StoreId)
+);
+
+//creating agent-store role table
+create table AgentStoreRole(
+    AgentId int(10) NOT NULL AUTO_INCREMENT,
+    StoreId int(10) NOT NULL,
+    Role  ENUM ("ADMIN","AGENT","VIEW"),
+    foreign key(AgentId) references Agent(AgentId),
+    foreign key(StoreId) references Store(StoreId)
+);
+
+//create inventory table
+create table Inventory(
+    ProductId int(10) not null,
+    StoreId int(10) not null,
+    QTY int not null,
+    foreign key (StoreId) references Store(StoreId)
+);
+
+//creating order table
+create table OrderTable(
+    OrderNo int not null AUTO_INCREMENT,
+    StoreId int(10) not null,
+    StoreName varchar(30) not null,
+    StoreAddress text not null,
+    OrderDate date not null,
+    OrderAmount int not null,
+    CustomerEmail varchar(50) not null,
+    CustomerId int(10),
+    BillingAddressLine1 text not null,
+    BillingAddressLine2 text not null,
+    BillingAddressState varchar(20) not null,
+    BillingAddressCountry varchar(20) not null,
+    BillingAddressPincode varchar(20) not null,
+    ShippingAddressLine1 text not null,
+    ShippingAddressLine2 text not null,
+    ShippingAddressState varchar(20) not null,
+    ShippingAddressCountry varchar(20) not null,
+    ShippingAddressPincode varchar(20) not null,
+    ShippingPhone varchar(15) not null,
+    OrderStatus ENUM ('PLACED','SHIPPED','CLOSED','CANCELLED','REJECTED','RETURNED','REPLACED'),
+    LastUpdate date not null,
+    Channel ENUM("WEB","CRM"),
+    PRIMARY KEY(OrderNo),
+    FOREIGN KEY(CustomerId) REFERENCES Customer(CustomerId),
+    FOREIGN KEY(StoreId) REFERENCES Store(StoreId)
+);
+
+//creating table OrderItems
+create table OrderItems(
+    OrderNo varchar(10) not null,
+    ProductId varchar(10) not null,
+    Quantity int not null,
+    Price float not null,
+    Status enum ('PLACED','SHIPPED','CLOSED','CANCELLED','REJECTED','RETURNED','REPLACED'),
+    LastUpdate date not null,
+    Channel ENUM("WEB","CRM") not null
+);
+
+//product table - MongoDB
+
+db.createCollection("Product") 
+
+db.Product.insert({ 
+    "ProductID" : "001", 
+    "ProductName": : "lenovo laptop", 
+    "ProductImage": , 
+    "PThumbnail" : " ", 
+    "PDescription" : " ", 
+    "PShDescription" : " ", 
+    "PRatings" : , 
+    "PPrice" : , 
+    "isActive":"Yes" 
+})
