@@ -67,7 +67,7 @@ create table Store (
 create table AgentStoreRole(
     AgentId int(10) NOT NULL AUTO_INCREMENT,
     StoreId int(10) NOT NULL,
-    Role  ENUM ("ADMIN","AGENT","VIEW"),
+    Role  ENUM ("AGENT","VIEW"),
     foreign key(AgentId) references Agent(AgentId),
     foreign key(StoreId) references Store(StoreId)
 );
