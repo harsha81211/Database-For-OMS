@@ -38,6 +38,7 @@ CREATE TABLE Customer(
 
 //Creating customer address table
 create table CustomerAddress(
+CAid int(10),
 CustomerId int(10) not null AUTO_INCREMENT ,
 AddressLine1 text not null,
 AddressLine2 text not null,
@@ -47,6 +48,7 @@ Pincode varchar(20) not null,
 Phone varchar(15) not null,
 isbillingAddress boolean not null,
 CreationDate date not null,
+primary key(CAid),
 foreign key(CustomerId) references Customer(CustomerId));
 
 //creating STORE table
@@ -65,18 +67,22 @@ create table Store (
 
 //creating agent-store role table
 create table AgentStoreRole(
+    ASRid int(10),
     AgentId int(10) NOT NULL AUTO_INCREMENT,
     StoreId int(10) NOT NULL,
     Role  ENUM ("AGENT","VIEW"),
+    primary key(ASRid),
     foreign key(AgentId) references Agent(AgentId),
     foreign key(StoreId) references Store(StoreId)
 );
 
 //create inventory table
 create table Inventory(
+    inventoryid int(10),
     ProductId int(10) not null,
     StoreId int(10) not null,
     QTY int not null,
+    primary key(inventoryid),
     foreign key (StoreId) references Store(StoreId)
 );
 
@@ -111,13 +117,16 @@ create table OrderTable(
 
 //creating table OrderItems
 create table OrderItems(
-    OrderNo varchar(10) not null,
+    Itemid int(10),
+    OrderNo int not null,
     ProductId varchar(10) not null,
     Quantity int not null,
     Price float not null,
     Status enum ('PLACED','SHIPPED','CLOSED','CANCELLED','REJECTED','RETURNED','REPLACED'),
     LastUpdate date not null,
-    Channel ENUM("WEB","CRM") not null
+    Channel ENUM("WEB","CRM") not null,
+    primary key(Itemid),
+    foreign key(OrderNo) references OrderTable(OrderNo)
 );
 
 //product table - MongoDB

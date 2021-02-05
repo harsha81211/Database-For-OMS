@@ -1,0 +1,389 @@
+# insert data into agent table
+insert into Agent values(
+    1,
+    "admin",
+    "Ranganatham",
+    "Rahul",
+    "12345",
+    "rahul@gmail.com",
+    "8282343454",
+    "1999-12-08",
+    "7-98/22 brindavan colony",
+    "near aurobindo high school",
+    "telangana",
+    "india",
+    "500085",
+    "MK Shoes",
+    20,
+    true,
+    true
+);
+
+insert into Agent(LoginId,
+LastName,
+FirstName,
+Password,
+Email,
+Phone,
+DOB,
+AddressLine1,
+AddressLine2,
+State,
+Country,
+PinCode,
+DefaultStore) values("harsha1",
+    "Panyala",
+    "Harsha",
+    "12345",
+    "harsha@gmail.com",
+    "7867897891",
+    "1999-02-28",
+    "9-88/12 maduri colony",
+    "7th sense lane",
+    "Karnataka",
+    "india",
+    "500076",
+    "Harsha stores"
+);
+
+insert into Agent(LoginId,
+LastName,
+FirstName,
+Password,
+Email,
+Phone,
+DOB,
+AddressLine1,
+AddressLine2,
+State,
+Country,
+PinCode,
+DefaultStore) values("joseph112",
+    "matt",
+    "joseph",
+    "12345",
+    "joseph@gmail.com",
+    "8812128812",
+    "1987-10-12",
+    "mark colony",
+    "maniac street",
+    "ontario",
+    "canada",
+    "400021",
+    "joseph styles"
+);
+
+
+# insert data into Customer Table
+
+insert into customer values(
+    1,
+    "kanne",
+    "keshav",
+    "keshav@gmail.com",
+    "9898777712",
+    "1999-01-03",
+    "1979-03-17",
+    "cust12345"
+);
+
+insert into customer values(
+    2,
+    "malhotra",
+    "manish",
+    "manish@gmail.com",
+    "8877823512",
+    "2001-07-15",
+    "1989-10-09",
+    "manish12345"
+);
+
+insert into customer values(
+    3,
+    "mary",
+    "henry",
+    "mary@gmail.com",
+    "6767126565",
+    "2002-10-11",
+    "1977-06-12",
+    "mary12345"
+);
+
+# insert data into CustomerAddress table
+
+insert into CustomerAddress values(
+    10001,
+    1,
+    "510-227 Donec Road",
+    "Yamuna Nagar",
+    "haryana",
+    "india",
+    "769641",
+    "9898777712",
+    true,
+    "2004-05-05"
+);
+
+insert into CustomerAddress values(
+    10002,
+    2,
+    "P.O. Box 947, 4803 Magna. Rd.",
+    "Dibrugarh",
+    "assam",
+    "india",
+    "193536",
+    "8877823512",
+    true,
+    "2003-01-05"
+);
+
+insert into CustomerAddress values(
+    10003,
+    3,
+    "998-1230 Felis. St.",
+    "Gudivada",
+    "andhra pradesh",
+    "india",
+    "253907",
+    "6767126565",
+    true,
+    "2002-11-15"
+);
+
+# insert data into store table
+
+insert into store values(
+    1,
+    "lanco logistics",
+    "Ap #105-1976 Sit St",
+    "Qutubullapur",
+    "andhra pradesh",
+    "india",
+    "917310",
+    "0402323121223",
+    "lanco@gmail.com"
+);
+
+insert into store values(
+    2,
+    "mobile retaile",
+    "5379 Nunc Rd.",
+    "Kakinada",
+    "andhra pradesh",
+    "india",
+    "999970",
+    "9834342323",
+    "mobile@gmail.com"
+);
+
+insert into store values(
+    3,
+    "manish designs",
+    "415 Facilisi. St.",
+    "Santipur",
+    "west bengal",
+    "india",
+    "409887",
+    "8787454565",
+    "designs@gmail.com"
+);
+
+insert into store values(
+    4,
+    "MK Shoes",
+    "7-98/22 brindavan colony",
+    "near aurobindo high school",
+    "telangana",
+    "india",
+    "500085",
+    "9000098980",
+    "mkshoes@gmail.com"
+);
+
+insert into store values(
+    5,
+    "Harsha stores",
+    "9-88/12 maduri colony",
+    "7th sense lane",
+    "Karnataka",
+    "india",
+    "500076",
+    "9898776677",
+    "storesharsha@gmail.com"
+);
+
+insert into store values(
+    6,
+    "joseph styles",
+    "mark colony",
+    "maniac street",
+    "ontario",
+    "canada",
+    "400021",
+    "8976554432",
+    "stylesjoseph@gmail.com"
+);
+
+
+# insert data into AgentStoreRole table
+
+insert into AgentStoreRole values(
+    10001,
+    2,
+    1,
+    "AGENT"
+);
+
+insert into AgentStoreRole values(
+    10002,
+    2,
+    2,
+    "VIEW"
+);
+
+insert into AgentStoreRole values(
+    10003,
+    3,
+    2,
+    "AGENT"
+);
+
+
+#insert into inventory table
+
+
+insert into inventory values(
+    10001,
+    2121,
+    5,
+    10
+);
+
+insert into inventory values(
+    10002,
+    2122,
+    5,
+    32
+);
+
+insert into inventory values(
+    10003,
+    2123,
+    5,
+    22
+);
+
+insert into inventory values(
+    10004,
+    2122,
+    5,
+    32
+);
+
+insert into inventory values(
+    10005,
+    2122,
+    5,
+    32
+);
+
+insert into inventory values(
+    10006,
+    3133,
+    3,
+    322
+);
+
+insert into inventory values(
+    10007,
+    3134,
+    4,
+    1
+);
+
+
+# insert into order table
+
+insert into OrderTable values(
+    1818,
+    6,
+    "joseph styles",
+    "mark colony",
+    "2005-06-12",
+    9999,
+    "mary@gmail.com",
+    3,
+    "998-1230 Felis. St.",
+    "Gudivada",
+    "andhra pradesh",
+    "india",
+    "253907",
+    "998-1230 Felis. St.",
+    "Gudivada",
+    "andhra pradesh",
+    "india",
+    "253907",
+    "6767126565",
+    "PLACED",
+    "2005-06-12",
+    "WEB"
+);
+
+
+# insert into OrderItems table
+
+
+insert into OrderItems values(
+    1111,
+    1818,
+    "2131",
+    2,
+    9999,
+    "PLACED",
+    "2005-06-12",
+    "WEB"
+);
+
+
+
+
+
+
+
+
+create table OrderItems(
+    Itemid int(10),
+    OrderNo int not null,
+    ProductId varchar(10) not null,
+    Quantity int not null,
+    Price float not null,
+    Status enum ('PLACED','SHIPPED','CLOSED','CANCELLED','REJECTED','RETURNED','REPLACED'),
+    LastUpdate date not null,
+    Channel ENUM("WEB","CRM") not null,
+    primary key(Itemid),
+    foreign key(OrderNo) references OrderTable(OrderNo)
+);
+
+insert into customer values(
+    3,
+    "mary",
+    "henry",
+    "mary@gmail.com",
+    "6767126565",
+    "2002-10-11",
+    "1977-06-12",
+    "mary12345"
+);
+
+insert into CustomerAddress values(
+    10003,
+    3,
+    "998-1230 Felis. St.",
+    "Gudivada",
+    "andhra pradesh",
+    "india",
+    "253907",
+    "6767126565",
+    true,
+    "2002-11-15"
+);
